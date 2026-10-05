@@ -1,0 +1,12 @@
+name: go-sandbox
+
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/go:2-1.25-bookworm
+    volumes:
+      - ../..:/workspaces:cached
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    command: sleep infinity
